@@ -1,17 +1,29 @@
 package com.example.steven.buttontestproject;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class DisplayMessageActivity extends ActionBarActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_activity);
+
+        // message from the intent
+        Intent intent = getIntent();
+        String message = getStringExtra(MainActivity.EXTRA_MESSAGE);
+
+        // Create the text view
+        TextView textView = new textView(this);
+        textView.setTextSize(40);
+        textView.setText(message);
+
+        // set the text view as the activity layout
+        setContentView(textView);
     }
 
     @Override
